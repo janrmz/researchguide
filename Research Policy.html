@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Research Guide - Paano Magsimula</title>
+   <style>
+    /* Import Cool Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Nunito:wght@300;400;700;900&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #4b6cb7, #182848);
+        background-size: 300% 300%;
+        animation: bgAnimate 15s infinite alternate;
+        padding: 30px;
+    }
+
+    @keyframes bgAnimate {
+        0% { background-position: left; }
+        100% { background-position: right; }
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    h1 {
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 35px;
+        font-size: 3em;
+        font-weight: 900;
+        text-shadow: 0 0 20px rgba(255,255,255,0.4);
+        letter-spacing: 2px;
+    }
+
+    .intro {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 25px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        border-left: 5px solid #7aa0ff;
+        box-shadow: 0 0 15px rgba(122,160,255,0.3);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .intro:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 30px rgba(122,160,255,0.5);
+    }
+
+    .timeline {
+        position: relative;
+        padding-left: 65px;
+        margin: 40px 0;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 28px;
+        top: 0;
+        bottom: 0;
+        width: 6px;
+        background: linear-gradient(to bottom, #6ea8ff, #b576ff);
+        border-radius: 6px;
+        box-shadow: 0 0 20px #6ea8ff;
+    }
+
+    .step {
+        position: relative;
+        margin-bottom: 40px;
+        background: rgba(255,255,255,0.15);
+        border: 2px solid rgba(255,255,255,0.3);
+        border-radius: 18px;
+        padding: 25px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        transition: 0.3s ease;
+    }
+
+    .step:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 35px rgba(0,0,0,0.3);
+        border-color: #7aa0ff;
+    }
+
+    .step::before {
+        content: '';
+        position: absolute;
+        left: -45px;
+        top: 20px;
+        width: 25px;
+        height: 25px;
+        background: #7aa0ff;
+        border: 4px solid white;
+        border-radius: 50%;
+        box-shadow: 0 0 15px #7aa0ff;
+    }
+
+    .step-number {
+        display: inline-block;
+        background: linear-gradient(135deg, #6ea8ff, #b576ff);
+        color: #fff;
+        padding: 10px 22px;
+        border-radius: 25px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 1.15em;
+        box-shadow: 0 0 12px rgba(110,168,255,0.6);
+    }
+
+    .step h3 {
+        color: #ffffff;
+        margin-bottom: 15px;
+        font-size: 1.5em;
+        text-shadow: 0 0 6px rgba(255,255,255,0.4);
+    }
+
+    .substep {
+        background: rgba(255,255,255,0.12);
+        padding: 18px;
+        margin: 12px 0;
+        border-radius: 12px;
+        border-left: 4px solid #b576ff;
+        transition: 0.3s;
+    }
+
+    .substep:hover {
+        border-left: 4px solid #ffffff;
+        background: rgba(255,255,255,0.20);
+    }
+
+    .substep h4 {
+        color: #9ecbff;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .checklist li {
+        color: white;
+    }
+
+    .checklist li::before {
+        color: #00ff9d;
+        text-shadow: 0 0 10px #00ff9d;
+    }
+
+    .example-box,
+    .warning,
+    .tip {
+        border-radius: 12px;
+        padding: 18px;
+        margin: 15px 0;
+        transition: 0.3s;
+    }
+
+    .example-box {
+        background: rgba(80,150,255,0.18);
+        border: 2px solid rgba(80,150,255,0.4);
+    }
+
+    .example-box:hover {
+        box-shadow: 0 0 15px rgba(80,150,255,0.6);
+        transform: translateY(-3px);
+    }
+
+    .warning {
+        background: rgba(255,200,0,0.15);
+        border: 2px solid rgba(255,200,0,0.5);
+    }
+
+    .tip {
+        background: rgba(0,255,140,0.14);
+        border: 2px solid rgba(0,255,140,0.5);
+    }
+
+    .format-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        background: rgba(0,0,0,0.15);
+        color: white;
+    }
+
+    .format-table th {
+        background: linear-gradient(135deg, #6ea8ff, #b576ff);
+        color: white;
+        padding: 12px;
+        text-align: left;
+    }
+
+    .format-table td {
+        padding: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .format-table tr:hover {
+        background: rgba(255,255,255,0.05);
+    }
+
+    .highlight {
+        background: #ffeb3b;
+        color: black;
+        padding: 4px 7px;
+        border-radius: 3px;
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .container { padding: 25px; }
+        h1 { font-size: 2em; }
+        .timeline { padding-left: 40px; }
+    }
+	 .footer {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 25px 10px;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .footer-container {
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .footer-title {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+
+  .footer-sub {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 15px;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+
+  /* Mobile view */
+  @media (max-width: 480px) {
+    .footer-links {
+      gap: 15px;
+    }
+    .footer-title {
+      font-size: 1rem;
+    }
+  }
+</style>
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 PAANO MAGSIMULA NG RESEARCH?</h1>
+        
+        <div class="intro">
+            <h2 style="color: #667eea; margin-bottom: 15px;">📖 Ano ba ang Research?</h2>
+            <p style="font-size: 1.1em;">
+                Ang research ay parang <strong>investigative work</strong> kung saan ikaw ay magsasaliksik tungkol sa isang topic, 
+                mag-aaral mula sa ibang sources, magsasagawa ng experiment o survey, at makakagawa ng conclusion based sa nakuha mong data. 
+                Para siyang paggawa ng <strong>detective report</strong> pero sa academic way!
+            </p>
+            <p style="margin-top: 15px; font-size: 1.1em;">
+                <strong>Halimbawa ng topic:</strong> "Effectiveness of Gamified Learning Platform for HTML and CSS Education among Grade 11 Students"
+            </p>
+        </div>
+
+        <div class="timeline">
+            <!-- STEP 0: BAGO MAGSIMULA -->
+            <div class="step">
+                <span class="step-number">STEP 0: Preparation</span>
+                <h3>🎯 Bago Magsimula ng Kahit Ano</h3>
+                
+                <div class="substeps">
+                    <div class="substep">
+                        <h4>1. Pumili ng Topic/Research Idea</h4>
+                        <ul class="checklist">
+                            <li>Dapat something na <strong>interesting</strong> sa'yo</li>
+                            <li>May <strong>practical use</strong> o relevance</li>
+                            <li>May available na <strong>resources</strong> (books, internet, respondents)</li>
+                            <li>Hindi masyadong broad, hindi rin masyadong narrow</li>
+                        </ul>
+                        
+                        <div class="example-box">
+                            <h4>✅ GOOD Topic:</h4>
+                            <p>"Gamified Web Platform for HTML Learning among Grade 11 STEM Students"</p>
+                            <p style="margin-top: 10px;"><strong>Bakit good?</strong> Specific, may target population, measurable, relevant</p>
+                            
+                            <h4 style="margin-top: 20px;">❌ BAD Topic:</h4>
+                            <p>"Technology in Education"</p>
+                            <p style="margin-top: 10px;"><strong>Bakit bad?</strong> Too broad, walang specific focus, mahirap sukatin</p>
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <h4>2. Mag-research ng Related Studies</h4>
+                        <p>Bago ka mag-finalize ng topic, check mo muna kung:</p>
+                        <ul class="checklist">
+                            <li>May available ba na studies related sa topic mo?</li>
+                            <li>Recent ba ang mga studies (5-10 years old)?</li>
+                            <li>May gap ba na pwede mong i-address?</li>
+                        </ul>
+                        
+                        <div class="tip">
+                            <strong>💡 Tip:</strong> Use Google Scholar, ResearchGate, o ask your teacher for sources!
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <h4>3. Humingi ng Guidance sa Research Adviser</h4>
+                        <ul class="checklist">
+                            <li>Ipresent ang idea mo</li>
+                            <li>Magtanong kung feasible ba (kaya mo ba gawin?)</li>
+                            <li>Ask for suggestions on improvement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 1: PROPOSAL/CONCEPT PAPER -->
+            <div class="step">
+                <span class="step-number">STEP 1: Proposal Presentation</span>
+                <h3>📝 Gumawa ng Concept Paper</h3>
+                
+                <p><strong>Ano ang Concept Paper?</strong> Ito ay short version ng research proposal mo. Parang "preview" kung ano ang plano mong gawin.</p>
+
+                <div class="substeps">
+                    <div class="substep">
+                        <h4>Mga Kasama sa Concept Paper:</h4>
+                        <table class="format-table">
+                            <thead>
+                                <tr>
+                                    <th>Part</th>
+                                    <th>Ano ang Ilalagay</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Research Title</strong></td>
+                                    <td>Clear, specific title ng study mo</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Proponents</strong></td>
+                                    <td>Pangalan ng lahat ng group members</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rationale</strong></td>
+                                    <td>BAKIT mo ginagawa ang study? Ano ang problema?</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Purpose Statement</strong></td>
+                                    <td>ANO ang goal ng research mo?</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Theoretical Framework</strong></td>
+                                    <td>Anong theories ang base ng study mo?</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Conceptual Framework</strong></td>
+                                    <td>Diagram showing INPUT → PROCESS → OUTPUT</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Research Design</strong></td>
+                                    <td>PAANO mo gagawin? (Experimental, Survey, etc.)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Statement of the Problem</strong></td>
+                                    <td>Mga specific questions na sasagutin mo</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="substep">
+                        <h4>Ano ang Mangyayari:</h4>
+                        <ul class="checklist">
+                            <li>Ipresent mo sa <strong>adviser mo lang</strong></li>
+                            <li>Adviser will give feedback at recommendations</li>
+                            <li>I-revise mo based sa suggestions</li>
+                        </ul>
+                        
+                        <div class="warning">
+                            <strong>⚠️ Note:</strong> Informal pa ito, walang formal panel. Relax lang!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 2: TITLE DEFENSE -->
+            <div class="step">
+                <span class="step-number">STEP 2: Title Defense</span>
+                <h3>🎤 Ipresent sa Panel of Examiners</h3>
+                
+                <p><strong>Ano ang Title Defense?</strong> Dito mo ipepresent ang buong concept paper mo sa mga <span class="highlight">panelists</span> (3 teachers usually) para aprubahan ang topic mo.</p>
+
+                <div class="substeps">
+                    <div class="substep">
+                        <h4>Mga Gagawin:</h4>
+                        <ul class="checklist">
+                            <li>Prepare presentation (PowerPoint/Canva)</li>
+                            <li>Explain clearly ang rationale, objectives, methodology</li>
+                            <li>Ready ka sa questions ng panelists</li>
+                            <li>Bring printed copies ng concept paper</li>
+                        </ul>
+                    </div>
+
+                    <div class="substep">
+                        <h4>Typical Questions ng Panelists:</h4>
+                        <div class="example-box">
+                            <p>❓ "Bakit mo napili ang topic na ito?"</p>
+                            <p>❓ "Paano mo susukatin ang effectiveness?"</p>
+                            <p>❓ "Sino ang target respondents?"</p>
+                            <p>❓ "Anong theories ang gagamitin mo?"</p>
+                            <p>❓ "Feasible ba ito given your resources?"</p>
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <h4>Output:</h4>
+                        <ul class="checklist">
+                            <li>✅ <strong>APPROVED</strong> - Proceed to next stage with recommendations</li>
+                            <li>⚠️ <strong>CONDITIONAL</strong> - May specific changes needed</li>
+                            <li>❌ <strong>REVISE TITLE</strong> - Need to change topic or approach</li>
+                        </ul>
+                        
+                        <div class="tip">
+                            <strong>💡 Tip:</strong> Take notes ng lahat ng suggestions. I-incorporate lahat sa next draft!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 3: WRITING CHAPTERS 1-3 -->
+            <div class="step">
+                <span class="step-number">STEP 3: Writing Phase (Part 1)</span>
+                <h3>✍️ Sumulat ng Chapter 1, 2, 3</h3>
+                
+                <div class="substeps">
+                    <div class="substep">
+                        <h4>📖 CHAPTER 1: The Problem and Its Background</h4>
+                        <p><strong>Ano ang ilalagay:</strong></p>
+                        <ul class="checklist">
+                            <li><strong>Introduction</strong> - Panimula, overview</li>
+                            <li><strong>Background of the Study</strong> - Context, setting, bakit importante</li>
+                            <li><strong>Literature Review</strong> - Ano ang sabi ng ibang researchers (30+ sources, 5-10 years old)</li>
+                            <li><strong>Theoretical Framework</strong> - Theories na base ng study (SDT, Constructivism, etc.)</li>
+                            <li><strong>Conceptual Framework</strong> - Diagram: INPUT → PROCESS → OUTPUT</li>
+                            <li><strong>Statement of the Problem</strong> - Research questions (numbered, specific)</li>
+                            <li><strong>Hypothesis</strong> (if applicable) - Expected outcomes</li>
+                            <li><strong>Significance of the Study</strong> - Sino ang makikinabang? Paano?</li>
+                            <li><strong>Scope and Delimitation</strong> - Ano ang saklaw? Ano ang hindi kasama?</li>
+                            <li><strong>Definition of Terms</strong> - Important terms, alphabetical order</li>
+                        </ul>
+                        
+                        <div class="warning">
+                            <strong>⚠️ Important:</strong> Gamitin ang APA 7th Edition para sa citations! Format: (Author, Year)
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <h4>🔬 CHAPTER 2: Research Methodology</h4>
+                        <p><strong>Ano ang ilalagay:</strong></p>
+                        <ul class="checklist">
+                            <li><strong>Overview/Introduction</strong> - Short intro, restate research questions</li>
+                            <li><strong>Research Design</strong> - Experimental? Survey? Descriptive?</li>
+                            <li><strong>Population and Sample</strong> - Sino ang target? Ilan? Paano pipiliin?</li>
+                            <li><strong>Sampling Technique</strong> - Random? Purposive? Stratified?</li>
+                            <li><strong>Description of Respondents</strong> - Age, grade level, strand, etc.</li>
+                            <li><strong>Research Instrument</strong> - Questionnaire? Test? Observation checklist?</li>
+                            <li><strong>Data Gathering Procedure</strong> - Step-by-step kung paano mo kukunin ang data</li>
+                            <li><strong>Statistical Treatment</strong> - Anong formula/test gagamitin? (Mean, T-test, ANOVA, etc.)</li>
+                        </ul>
+                        
+                        <div class="example-box">
+                            <h4>Sample Research Instrument:</h4>
+                            <p><strong>For Survey:</strong> Questionnaire with Likert Scale (1-5)</p>
+                            <p><strong>For Experimental:</strong> Pre-test and Post-test</p>
+                            <p><strong>For Qualitative:</strong> Interview guide, Observation checklist</p>
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <h4>📊 CHAPTER 3: (Wait, this is for AFTER data gathering!)</h4>
+                        <p><strong>Sa Pre-Oral Defense:</strong> Chapter 1-2 + Research Instrument lang ang ipepresent</p>
+                        <p><strong>Chapter 3</strong> (Results) - Gagawin mo AFTER ng data gathering</p>
+                        
+                        <div class="tip">
+                            <strong>💡 Timeline:</strong><br>
+                            Chapter 1-2 → Pre-Oral → Data Gathering → Chapter 3-4 → Final Defense
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 4: PRE-ORAL DEFENSE -->
+            <div class="step">
+                <span class="step-number">STEP 4: Pre-Oral Defense</span>
+                <h3>🎯 Defend Chapters 1-2 + Research Instrument</h3>
+                
+                <div class="substeps">
+                    <div class="substep">
+                        <h4>📦 Requirements:</h4>
+                        <ul class="checklist">
+                            <li>Chapter 1 (complete)</li>
+                            <li>Chapter 2 (complete)</li>
+                            <li>Research Instrument (questionnaire/test/guide)</li>
+                            <li>4 printed copies (3 days before defense)</li>
+                            <li>PowerPoint presentation (15-20 mins)</li>
+                        </ul>
+                        
+                        <div class="warning">
+                            <strong>⚠️ CRITICAL:</strong> Kung WALANG research instrument, automatic CONDITIONAL ang decision! Kailangan may questionnaire ka o test instrument na ready na!
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <h4>👔 Dress Code:</h4>
+                        <p><strong>SCHOOL UNIFORM</strong> (Pre-oral lang, hindi pa corporate)</p>
+                    </div>
+
+                    <div class="substep">
+                        <h4>⏰ Sa Araw ng Defense:</h4>
+                        <ol style="padding-left: 20px;">
+                            <li>Opening prayer, introductions (5 mins)</li>
+                            <li>Your presentation (15-20 mins)</li>
+                            <li>Q&A with panelists (20-30 mins)</li>
+                            <li>Deliberation (lalabas kayo ng room)</li>
+                            <li>Announcement of results</li>
+                        </ol>
+                        
+                        <div class="tip">
+                            <strong>💡 Defense Tips:</strong>
+                            <ul class="checklist">
+                                <li>Practice presentation 3-5 times beforehand</li>
+                                <li>TUMAYO while presenting, hindi uupo</li>
+                                <li>Eye contact with panelists</li>
+                                <li>Speak clearly and confidently</li>
+                                <li>If hindi mo alam ang sagot, be honest: "That's a good point. I'll research more on that."</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <h4>Possible Results:</h4>
+                        <table class="format-table">
+                            <tr>
+                                <td><strong>92% above</strong></td>
+                                <td>Minor revisions lang - proceed to data gathering!</td>
+                            </tr>
+                            <tr>
+                                <td><strong>83-91%</strong></td>
+                                <td>Major revisions - need substantial changes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>75-82%</strong></td>
+                                <td>Conditional - may specific conditions to meet</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 5: DATA GATHERING -->
+            <div class="step">
+                <span class="step-number">STEP 5: Data Gathering</span>
+                <h3>📋 Kumuha ng Data</h3>
+                
+                <div class="substeps">
+                    <div class="substep">
+                        <h4>Bago Magsimula:</h4>
+                        <ul class="checklist">
+                            <li>Get <strong>approval</strong> from adviser</li>
+                            <li>Prepare <strong>permission letters</strong> (kung may respondents from other schools)</li>
+                            <li>Print enough copies ng questionnaire</li>
+                            <li>Prepare informed consent forms</li>
+                        </ul>
+                    </div>
+
+                    <div class="substep">
+                        <h4>During Data Gathering:</h4>
+                        <ul class="checklist">
+                            <li>Explain clearly sa respondents ang purpose ng study</li>
+                            <li>Assure confidentiality and anonymity</li>
+                            <li>Give enough time to answer (don't rush them)</li>
+                            <li>Check if lahat ng questions nasagot</li>
+                            <li>Thank them after!</li>
+                        </ul>
+                        
+                        <div class="example-box">
+                            <h4>Sample Timeline:</h4>
+                            <p><strong>Week 1:</strong> Distribute questionnaires</p>
+                            <p><strong>Week 2:</strong> Collect responses, conduct interviews</p>
+                            <p><strong>Week 3:</strong> Encode data, tabulate results</p>
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <h4>After Gathering:</h4>
+                        <ul class="checklist">
+                            <li>Encode all data (Excel o SPSS)</li>
+                            <li>Compute statistics (mean, standard deviation, etc.)</li>
+                            <li>Create tables and graphs</li>
+                            <li>Get <strong>Statistician's Certification</strong> (kung required)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 6: WRITING CHAPTERS 3-4 -->
+            <div class="step">
+                <span class="step-number">STEP 6: Writing Phase (Part 2)</span>
+                <h3>✍️ Sumulat ng Chapter 3 at 4</h3>
+                
+                <div class="substeps">
+                    <div class="substep">
+                        <h4>📊 CHAPTER 3: Results and Discussion</h4>
+                        <p><strong>Ano ang ilalagay:</strong></p>
+                        <ul class="checklist">
+                            <li><strong>Overview</strong> - Brief intro</li>
+                            <li><strong>Presentation of Data</strong> - Tables, graphs, figures</li>
+                            <li><strong>Analysis per Research Question</strong> - One by one, answer each problem</li>
+                            <li><strong>Interpretation</strong> - Ano ang meaning ng results? Agree ba sa theories?</li>
+                            <li><strong>Discussion</strong> - Compare with other studies, explain findings</li>
+                        </ul>
+                        
+                        <div class="tip">
+                            <strong>💡 Format ng Tables:</strong><br>
+                            Table number and title - ITAAS ng table<br>
+                            Figure number and title - IBABA ng figure
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <h4>✅ CHAPTER 4: Summary, Conclusions, Recommendations</h4>
+                        <p><strong>Ano ang ilalagay:</strong></p>
+                        <ul class="checklist">
+                            <li><strong>Summary of Findings</strong> - Buod ng lahat ng nakita mong results</li>
+                            <li><strong>Conclusions</strong> - Sagot sa research questions, based on findings</li>
+                            <li><strong>Recommendations</strong> - Suggestions for:
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Students</li>
+                                    <li>Teachers</li>
+                                    <li>School administrators</li>
+                                    <li>Future researchers</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <div class="warning">
+                            <strong>⚠️ Note:</strong> 3 subheadings lang ang kailangan sa Chapter 4! Wag dagdagan.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 7: FINAL DEFENSE -->
+            <div class="step">
+                <span class="step-number">STEP 7: Final Defense</span>
+                <h3>🏆 Final Oral Defense - THE BIG DAY!</h3>
+                
+                <div class="substeps">
+                    <div class="substep">
+                        <h4>📦 Requirements (3 days before):</h4>
+                        <ul class="checklist">
+                            <li>4 complete copies ng FULL research paper (Chapter 1-4)</li>
+                            <li>Complete preliminaries (Title page, Approval sheet, Abstract, etc.)</li>
+                            <li>Complete appendices (Questionnaire, Tabulation, etc.)</li>
+                            <li>PowerPoint presentation</li>
+                        </ul>
+                    </div>
+
+                    <div class="substep">
+                        <h4>👔 Dress Code:</h4>
+                        <p><strong>CORPORATE ATTIRE</strong> (Smart casual o formal wear)</p>
+                        <div class="warning">
+                            <strong>⚠️ Bawal:</strong>
+                            <ul style="padding-left: 20px; margin-top: 5px;">
+                                <li>Earrings (for men)</li>
+                                <li>Dyed hair</li>
+                                <li>Improper haircut</li>
+                                <li>Slippers, tsinelas</li>
+                            </ul>
+                            <p style="margin-top: 10px;">Hindi ka padadefend kung hindi sumunod sa dress code!</p>
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <h4>🎤 Presentation (15-20 mins):</h4>
+                        <p><strong>Ano ang ipepresent:</strong></p>
+                        <ol style="padding-left: 20px;">
+                            <li>Introduction and Background (2-3 mins)</li>
+                            <li>Statement of the Problem (1 min)</li>
+                            <li>Brief Methodology (2 mins)</li>
+                            <li><strong>MAIN FOCUS: Results and Findings</strong> (8-10 mins)</li>
+                            <li>Conclusions and Recommendations (2-3 mins)</li>
+                        </ol>
+                        
+                        <div class="tip">
+                            <strong>💡 Pro Tip:</strong> Focus sa findings! Yan ang main interest ng panel. Hindi mo na kailangang basahin lahat ng Chapter 1-2 kasi nabasa na nila.
+                        </div>
+                    </div>
+
+                    <div class="substep">
+                        <h4>❓ Q&A Phase:</h4>
+                        <p><strong>Order ng Questioning:</strong></p>
+                        <ol style="padding-left: 20px;">
+                            <li>Panelist 1 (Content Expert) - questions about methodology, results</li>
+                            <li>Panelist 2 (Technical Expert) - questions about process, research design</li>
+							</div>
+							<footer class="footer">
+  <div class="footer-container">
+    <p class="footer-title">© 2025 12-CCS</p>
+    <p class="footer-sub">All rights reserved.</p>
+
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
